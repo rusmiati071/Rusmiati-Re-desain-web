@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- Feather Icons -->
+  	 <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+    
+		:root {
+		  --primary: #A91D3A;
+		  --bg: #010101;
+		}    
+    
+		 * {
+		 	margin: 0;
+		  	padding: 0;
+		  	box-sizing: border-box;
+		  	outline: none;
+		  	border: none;
+		  	text-decoration: none;
+		  }    
+		  
+		  body {
+			  font-family: 'Poppins', sans-serif;
+			  background-color: var(--bg);
+			  color: #fff;
+			}
+		
+        /* CSS untuk header */
+        /* Navbar */
+		.navbar {
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		  padding: 1.4rem 7%;
+		  background-color: rgba(169, 29, 58, 1);
+		  border-bottom: 1px solid #513c28;
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  z-index: 9999;
+		}
+		
+		li {
+		    list-style: none;
+		}		
+		
+		.navbar .navbar-logo {
+		    /*font-size: 2.5rem;*/
+		    /*font-weight: 800;*/
+		    /* color: #FF0000; */
+		    padding-left: 10px;
+		    height: 40px; 
+		    width: 200px;
+		}
+		
+		.navbar .links {
+		    display: flex;
+		    gap: 1.5rem;
+		} 
+		
+		.navbar .links a {
+		    display: flex;
+		    font-size: 1.2rem;
+		    color: #fff;
+		}
+
+
+        /* CSS untuk bagian pencarian */
+        .search-box {
+            position: absolute; /* Position absolut */
+            top: 30px; /* Jarak dari atas */
+            right: 30px; /* Jarak dari kanan */
+        }
+
+        .search-box input[type="text"] {
+            padding: 5px; /* Ruang dalam input */
+            border-radius: 5px; /* Sudut border */
+            border: none; /* Hapus border */
+        }
+
+        .search-box button {
+            padding: 5px 10px; /* Ruang dalam tombol */
+            border-radius: 5px; /* Sudut border */
+            border: none; /* Hapus border */
+            background-color: white; /* Warna latar belakang putih */
+            color: rgb(167, 16, 134); /* Warna teks biru */
+            width: 80px; /* Lebar tombol */
+            height: 30px; /* Tinggi tombol */
+        }
+
+        /* CSS untuk teks di bawah header */
+        .sub-header {
+            background-color: rgb(172, 20, 103); /* Warna latar belakang biru */
+            color: white; /* Warna teks putih */
+            text-align: center; /* Teks ditengah */
+            padding: 50px 0; /* Ruang atas dan bawah 50px, sisi kiri kanan 0 */
+            font-size: 40px; /* Ukuran teks */
+        }
+
+        /* CSS untuk halaman baru */
+        .new-page {
+            background-color: blue; /* Ubah latar belakang menjadi biru */
+            color: white; /* Warna teks putih */
+            text-align: center; /* Teks ditengah */
+            padding: 50px 0; /* Ruang atas dan bawah 50px, sisi kiri kanan 0 */
+            font-size: 40px; /* Ukuran teks */
+        }
+        
+			/* About Section */
+			.about,
+			.menu,
+			.products,
+			.contact {
+			  padding: 8rem 7% 1.4rem;
+			}
+			
+			.about h2,
+			.menu h2,
+			.products h2,
+			.contact h2 {
+			  text-align: center;
+			  font-size: 2.6rem;
+			  margin-bottom: 3rem;
+			}
+			
+			.about h2 span,
+			.menu h2 span,
+			.products h2 span,
+			.contact h2 span {
+			  color: var(--primary);
+			}
+			
+			.about .row {
+			  display: flex;
+			}
+			
+			.about .row .about-img {
+			  flex: 1 1 45rem;
+			}
+			
+			.about .row .about-img img {
+			  width: 100%;
+			}
+			
+			.about .row .content {
+			  flex: 1 1 35rem;
+			  padding: 0 1rem;
+			}
+			
+			.about .row .content h3 {
+			  font-size: 1.8rem;
+			  margin-bottom: 1rem;
+			}
+			
+			.about .row .content p {
+			  margin-bottom: 0.8rem;
+			  font-size: 1.3rem;
+			  font-weight: 100;
+			  line-height: 1.6;
+			}
+			
+			/* Hero Section */
+			.hero {
+			  min-height: 100vh;
+			  display: flex;
+			  align-items: center;
+			  background-image: url('../img/header-bg.jpeg');
+			  background-repeat: no-repeat;
+			  background-size: cover;
+			  background-position: center;
+			  position: relative;
+			}
+			
+			.hero::after {
+			  content: '';
+			  display: block;
+			  position: absolute;
+			  width: 100%;
+			  height: 30%;
+			  bottom: 0;
+			  background: linear-gradient(0deg, rgba(1, 1, 3, 1) 8%, rgba(255, 255, 255, 0) 50%);
+			}
+			
+			.hero .content {
+			  padding: 1.4rem 7%;
+			  max-width: 60rem;
+			}
+			
+			.hero .content h1 {
+			  font-size: 5em;
+			  color: #fff;
+			  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+			  line-height: 1.2;
+			}
+			
+			.hero .content h1 span {
+			  color: var(--primary);
+			}
+			
+			.hero .content p {
+			  font-size: 1.6rem;
+			  margin-top: 1rem;
+			  line-height: 1.4;
+			  font-weight: 100;
+			  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+			  mix-blend-mode: difference;
+			}
+			
+			.hero .content .cta {
+			  margin-top: 1rem;
+			  display: inline-block;
+			  padding: 1rem 3rem;
+			  font-size: 1.4rem;
+			  color: #fff;
+			  background-color: var(--primary);
+			  border-radius: 0.5rem;
+			  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+			}
+			
+		  .about .row {
+		    flex-wrap: wrap;
+		  }
+		
+		  .about .row .about-img img {
+		    height: 24rem;
+		    object-fit: cover;
+		    object-position: center;
+		  }
+		
+		  .about .row .content {
+		    padding: 0;
+		  }
+		
+		  .about .row .content h3 {
+		    margin-top: 1rem;
+		    font-size: 2rem;
+		  }
+		
+		  .about .row .content p {
+		    font-size: 1.6rem;
+		  }			
+			
+			/* Menu Section */
+			.menu h2,
+			.products h2,
+			.contact h2 {
+			  margin-bottom: 1rem;
+			}
+			.menu p,
+			.products p,
+			.contact p {
+			  text-align: center;
+			  max-width: 30rem;
+			  margin: auto;
+			  font-weight: 100;
+			  line-height: 1.6;
+			}
+			
+			.menu .row {
+			  display: flex;
+			  flex-wrap: wrap;
+			  margin-top: 5rem;
+			  justify-content: center;
+			}
+			
+			.menu .row .menu-card {
+			  text-align: center;
+			  padding-bottom: 4rem;
+			}
+			
+			.menu .row .menu-card img {
+			  border-radius: 20%;
+			  width: 20%;
+			}
+			
+			.menu .row .menu-card .menu-card-title {
+			  margin: 1rem auto 0.5rem;
+			}			
+			
+		/* Footer */
+		footer {
+		  background-color: var(--primary);
+		  text-align: center;
+		  padding: 1rem 0 3rem;
+		  margin-top: 3rem;
+		}
+		
+		footer .socials {
+		  padding: 1rem 0;
+		}
+		
+		footer .socials img {
+		  height: 10px;
+		  width: auto;
+		}
+		
+		footer .socials a {
+		  color: #fff;
+		  margin: 1rem;
+		}
+		
+		footer .socials a:hover,
+		footer .links a:hover {
+		  color: var(--bg);
+		}
+		
+		footer .links {
+		  margin-bottom: 1.4rem;
+		}
+		
+		footer .links a {
+		  color: #fff;
+		  padding: 0.7rem 1rem;
+		}
+		
+		footer .credit {
+		  font-size: 0.8rem;
+		}
+		
+		footer .credit a {
+		  color: var(--bg);
+		  font-weight: 700;
+		}	
+		
+			
+	  
+	/* Contact Section */
+	.contact .row {
+	  display: flex;
+	  margin-top: 2rem;
+	  background-color: #222;
+	}
+	
+	.contact .row .map {
+	  flex: 1 1 45rem;
+	  width: 100%;
+	  object-fit: cover;
+	}
+	
+	.contact .row form {
+	  flex: 1 1 45rem;
+	  padding: 5rem 2rem;
+	  text-align: center;
+	}
+	
+	.contact .row form .input-group {
+	  display: flex;
+	  align-items: center;
+	  margin-top: 2rem;
+	  background-color: var(--bg);
+	  border: 1px solid #eee;
+	  padding-left: 2rem;
+	}
+	
+	.contact .row form .input-group input {
+	  width: 100%;
+	  padding: 2rem;
+	  font-size: 1.7rem;
+	  background: none;
+	  color: #fff;
+	}
+	
+	.contact .row form .btn {
+	  margin-top: 3rem;
+	  display: inline-block;
+	  padding: 1rem 3rem;
+	  font-size: 1.7rem;
+	  color: #fff;
+	  background-color: var(--primary);
+	  cursor: pointer;
+	}  
+	
+		  .contact .row {
+	    flex-wrap: wrap;
+	  }
+	
+	  .contact .row .map {
+	    height: 30rem;
+	  }
+	
+	  .contact .row form {
+	    padding-top: 0;
+	  }	
+	  
+		/* Products Section */
+		.products .row {
+		  display: grid;
+		  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+		  gap: 1.5rem;
+		  margin-top: 4rem;
+		}
+		
+		.products .product-card {
+		  text-align: center;
+		  border: 1px solid #666;
+		  padding: 2rem;
+		}
+		
+		.products .product-icons {
+		  display: flex;
+		  justify-content: center;
+		  gap: 0.5rem;
+		}
+		
+		.products .product-icons a {
+		  width: 4rem;
+		  height: 4rem;
+		  color: #fff;
+		  margin: 0.3rem;
+		  border: 1px solid #666;
+		  border-radius: 50%;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		}
+		
+		.products .product-icons a:hover {
+		  background-color: var(--primary);
+		  /*border: 1px solid var(--primary);*/
+		}
+		
+		.products .product-image {
+		  padding: 0;
+		}
+		
+		.products .product-image img {
+		  height: 20rem;
+		}
+		
+		.products .product-content h3 {
+		  font-size: 2rem;
+		}
+		
+		.products .product-stars {
+		  font-size: 1.7rem;
+		  padding: 0.8rem;
+		  color: var(--primary);
+		}	  
+			        
+    </style>
+</head>
+<body>
+
+		<!--navbar start-->
+		<nav class="navbar">
+		    <div class="navbar-logo">
+			 <a>			 
+			 <img src="https://static.wixstatic.com/media/282ef0_d743603b2f1741c7b0f5d23474357135~mv2.png/v1/fill/w_451,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/TAGTEAMSIGNS%20COMMERCIAL_Logo.png" alt="TAGTEAMSIGNS COMMERCIAL.Logo.png"
+			 	style="height: 40px; width: 200px;">
+			 </a>			   
+		    </div>    
+		
+		    <ul class="links">
+		      	<li><a href="#home">Home</a></li>
+               <li><a href="#services">Services</a></li>
+               <li><a href="#about">About Us</a></li>
+               <li><a href="#work">Work</a></li>
+               <li><a href="#contact">Contact</a></li>
+		    </ul>
+		
+		    <div class="navbar-cari">
+		        	<input type="text" placeholder="Search...">
+	         	<button type="submit">Search</button>
+		    </div>
+		</nav>    
+		<!--navbar end-->
+    
+    <!-- Teks SIGNS DESIGN BUILD INSTALL 
+	 <div class="sub-header">
+	    <span style="font-size: 80px; display: inline-block; width: auto; height: 200px; word-wrap: break-word; margin-bottom: 5px;">SIGNS DESIGN</span><br>
+	    <span style="font-size: 80px; display: inline-block; width: auto; height: 200px; word-wrap: break-word;margin-bottom: 5px;"> BUILD INSTALL</span>
+	 </div>-->
+	 
+	 <!-- Hero Section start -->
+	 <section class="hero" id="home">
+	    <main class="content">
+	      <h1>SIGN DESIGN <span>BUILD INSTALL</span></h1>
+		   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, enim.</p>
+	      <a href="#" class="cta">Order Now</a>
+	    </main>
+	 </section>
+	 <!-- Hero Section end -->
+
+  <!-- About Section start -->
+  <section id="about" class="about">
+    <h2><span>About</span> Us</h2>
+
+    <div class="row">
+      <div class="about-img">
+        <img src="img/tentang-kami.jpg" alt="Tentang Kami">
+      </div>
+      <div class="content">
+        <h3>Who We Are ?</h3>
+        <p>We are a Full Service Sign Company with Over 20 Years in the Industry.
+We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!</p>
+		 <p><ul>
+			<li>Pan Channel Letters</li>
+			<li>Reversed Pan Channel Letters</li>
+			<li>LED Illumination</li>
+			<li>Monument & Pole Signs</li>
+			<li>Sign Cabinets</li>
+			<li>Sign Service and Repair</li>
+			<li>National Accounts</li>
+			<li>Permit Processing</li>
+			<li>Licensed, Bonded and Insured</li>
+		 </ul></p>  
+        <p>Give us a call today for a Free Estimate!</p>
+      </div>
+    </div>
+  </section>
+  <!-- About Section end -->
+  
+    <!-- Menu Section start -->
+  <section id="work" class="products">
+    <h2><span>Our</span> Work</h2>
+	<p>
+	Discover how TagTeamSigns is your best resource for creative, quality sign solutions. Our highly trained staff is committed to give you exceptional customer service. From start to finish, you'll see how we make the most out of the latest technologies to design, create and install virtually any type of sign. We streamline the sign buying process for you from Concept to Completion.
+	</p>	
+ 
+    <div class="row">
+      <div class="product-card">
+        <div class="product-image">
+          <img src="gb1.jpg" alt="Product 1">
+        </div>
+        <div class="product-content">
+          <!--<h3>Produk 1</h3>-->
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="gb2.jpg" alt="Product 2">
+        </div>
+        <div class="product-content">
+         <!-- <h3>Produk 2</h3>-->
+        </div>
+      </div>     
+      <div class="product-card">
+        <div class="product-image">
+          <img src="gb3.jpg" alt="Product 3">
+        </div>
+        <div class="product-content">
+          <!--<h3>Produk 3</h3>-->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Products Section end -->
+
+
+  </section>
+  <!-- Menu Section end -->
+  
+    <!-- Menu Section start -->
+  <section id="services" class="menu">
+    <h2><span>Our</span> Service</h2>
+    <div class="row">
+      <div class="menu-card">
+        <img src="gb1.jpg" alt="." class="menu-card-img">
+        <h3 class="menu-card-title">STOREFRONT<br> SIGNS</h3>
+        <!--<p class="menu-card-price">IDR 15K</p>-->
+      </div>
+      <div class="menu-card">
+        <img src="gb2.jpg" alt="." class="menu-card-img">
+        <h3 class="menu-card-title">COMMERCIAL<br> SIGNS</h3>
+ <!--       <p class="menu-card-price">IDR 15K</p>-->
+      </div>
+      <div class="menu-card">
+        <img src="gb3.jpg" alt="." class="menu-card-img">
+        <h3 class="menu-card-title">MONUMENT<br> SIGNS</h3>
+        <!--<p class="menu-card-price">IDR 15K</p>-->
+      </div>
+      <div class="menu-card">
+        <img src="gb4.jpg" alt="." class="menu-card-img">
+        <h3 class="menu-card-title">SERVICE &<br> PERMITTING</h3>
+<!--        <p class="menu-card-price">IDR 15K</p>-->
+      </div>
+    </div>
+  </section>
+  <!-- Menu Section end -->  
+
+  <!-- Contact Section start -->
+  <section id="contact" class="contact">
+    <h2><span>Contact</span> Us</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, provident.
+    </p>
+
+    <div class="row">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311709235512!3d-6.903444341687889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1672408575523!5m2!1sen!2sid"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+
+      <form action="">
+        <div class="input-group">
+          <i data-feather="user"></i>
+          <input type="text" placeholder="nama">
+        </div>
+        <div class="input-group">
+          <i data-feather="mail"></i>
+          <input type="text" placeholder="email">
+        </div>
+        <div class="input-group">
+          <i data-feather="phone"></i>
+          <input type="text" placeholder="no hp">
+        </div>
+        <button type="submit" class="btn">kirim pesan</button>
+      </form>
+
+    </div>
+  </section>
+  <!-- Contact Section end -->
+
+  <!-- Footer start -->
+  <footer>
+    <div class="socials">
+      <a href="#"><img src="twitter.png" alt="twitter"></a>
+      <a href="#"><img src="facebook.png" alt="facebook"></a>
+      <a href="#"><img src="instagram.png" alt="instagram"></a>
+    </div>
+
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+
+    <div class="credit">
+      <p>Created by <a href="">nama_depan_akhir</a>. |   </p>
+    </div>
+  </footer>
+
+</body>
+</html>
